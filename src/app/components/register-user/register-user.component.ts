@@ -19,7 +19,7 @@ export class RegisterUserComponent {
     private afAuth: AngularFireAuth,
     private toastr: ToastrService,
     private router: Router,
-    private firebaseError : FirebaseCodeErrorService) {
+    private firebaseError: FirebaseCodeErrorService) {
     this.registerUser = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -45,6 +45,4 @@ export class RegisterUserComponent {
       this.toastr.error(this.firebaseError.CodeError(error.code), 'ERROR')
     })
   }
-
-
 }
