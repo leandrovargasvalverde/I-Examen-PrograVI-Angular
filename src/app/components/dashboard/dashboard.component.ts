@@ -16,9 +16,10 @@ export class DashboardComponent {
   }
   ngOnInit(){
     this.afAuth.currentUser.then(user => {
+      this.dataUser = user
       if (user && user.emailVerified) {
         this.dataUser = user
-      } else if (!user) {
+      } else{
         this.router.navigate(['/login']);
       }
     });
