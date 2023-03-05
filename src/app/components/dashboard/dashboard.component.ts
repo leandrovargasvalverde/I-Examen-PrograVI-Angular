@@ -14,7 +14,6 @@ export class DashboardComponent {
     private router: Router) {
 
   }
-/*
   ngOnInit(){
     this.afAuth.currentUser.then(user => {
       if (user && user.emailVerified) {
@@ -24,7 +23,6 @@ export class DashboardComponent {
       }
     });
   }
-*/
   logOut() {
     this.afAuth.signOut().then(() => this.router.navigate(['/login']))
   }
