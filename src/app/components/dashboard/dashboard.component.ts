@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +8,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+  dataUser: any;
+
+  constructor(private afAuth: AngularFireAuth,
+    private router: Router) {
+
+  }
+/*
+  ngOnInit(){
+    this.afAuth.currentUser.then(user => {
+      if (user && user.emailVerified) {
+        this.dataUser = user
+      } else if (!user) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+*/
+  logOut() {
+    this.afAuth.signOut().then(() => this.router.navigate(['/login']))
+  }
 
 }

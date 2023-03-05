@@ -1,1 +1,21 @@
-<p>dashboard works!</p>
+<div class="background">
+
+    <div class="container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-dark btn-lg" (click)="logOut()">Cerrar Sesión</button>
+            </div>
+        </header>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <img class="logo" src="../../../assets/img/3898671.png" alt="login">
+            <h1 class="display-4 fw-normal">Bienvenido a Firebase Authentication</h1>
+            <h1 class="display-4 fw-normal">{{ dataUser.email }}</h1>
+        </div>
+    </div>
+</div>

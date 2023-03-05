@@ -2,26 +2,40 @@
     <div *ngIf="!loading" class="body">
         <h1>Registrarse</h1>
 
-        <img class="logo" src="../../../assets/img/3168160.png" alt="login">
+        <img class="logo" src="../../../assets/img/2921087.png" alt="login">
 
         <h1>Firebase Auth</h1>
-
 
         <form (ngSubmit)="register()" [formGroup]="registerUser">
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
                 <label>Correo Electrónico</label>
+                <span *ngIf="registerUser.get('email')?.hasError('required') && registerUser.get('email')?.touched"
+                    class="text-dark"><strong>El email es requerido</strong>
+                </span>
+                <span *ngIf="registerUser.get('email')?.hasError('email') && registerUser.get('email')?.touched"
+                    class="text-dark"><strong>El email no es válido</strong>
+                </span>
             </div>
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" formControlName="password" placeholder="Password">
                 <label>Contraseña</label>
+                <span *ngIf="registerUser.get('password')?.hasError('required') && registerUser.get('password')?.touched"
+                    class="text-dark"><strong>La contraseña es requerida</strong>
+                </span>
+                <span *ngIf="registerUser.get('password')?.hasError('minlength') && registerUser.get('password')?.touched"
+                    class="text-dark"><strong>La contraseña requiere como mínimo 6 caracteres</strong>
+                </span>
             </div>
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" formControlName="repeatpassword" placeholder="Password">
                 <label>Repetir Contraseña</label>
+                <span *ngIf="registerUser.get('repeatpassword')?.hasError('required') && registerUser.get('repeatpassword')?.touched"
+                    class="text-dark"><strong>Repetir la contraseña es requerido</strong>
+                </span>
             </div>
             <div class="d-grid gap-2 mb-3">
-                <button class="btn btn-dark btn-lg" type="submit">Aceptar</button>
+                <button class="btn btn-dark btn-lg" type="submit"  [disabled]="registerUser.invalid" >Aceptar</button>
             </div>
             <a style="color: black;" routerLink="/login">Regresar</a>
         </form>

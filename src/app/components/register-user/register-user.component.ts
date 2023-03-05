@@ -21,8 +21,8 @@ export class RegisterUserComponent {
     private router: Router,
     private firebaseError: FirebaseCodeErrorService) {
     this.registerUser = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       repeatpassword: ['', Validators.required],
     })
   }

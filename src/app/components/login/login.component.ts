@@ -20,7 +20,7 @@ export class LoginComponent {
     private router: Router,
     private firebaseError: FirebaseCodeErrorService) {
     this.loginUser = this.fb.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required , Validators.email]],
       password: ['', Validators.required],
     })
   }
